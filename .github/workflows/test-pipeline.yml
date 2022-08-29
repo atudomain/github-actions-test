@@ -1,5 +1,8 @@
 name: learn-github-actions
-on: [push]
+on: 
+  push:
+    paths:
+      - '.github/**'
 jobs:
   echoing-job-for-test:
     runs-on: ubuntu-latest
