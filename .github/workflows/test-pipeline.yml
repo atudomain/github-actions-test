@@ -1,0 +1,8 @@
+name: learn-github-actions
+on: [push]
+jobs:
+  echoing-job-for-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "test"
