@@ -18,3 +18,18 @@ jobs:
         uses: actions/checkout@v3
       - name: Echo inputs 
         run: echo "${{ inputs.boolean_input }}"
+  failing-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Fail
+        run: cat non-existing-file
+  some-other-not-dependent-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Echo something 
+        run: echo "Something"
+
