@@ -28,6 +28,6 @@ jobs:
       - name: Echo inputs 
         run: |
           git checkout master
-          touch test$(date)
+          touch test$(date | tr ':' - | tr ' ' _ | tr -d ',')
           git add && git commit -m "$(date)"
           git push origin master
