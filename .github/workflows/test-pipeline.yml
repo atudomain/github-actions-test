@@ -1,8 +1,9 @@
-name: learn-github-actions
-on: 
+name: build-and-deploy-test-stable
+on:
   push:
-    paths:
-      - '.github/**'
+    branches:
+      - 'master'
+      - 'hotfix**'
   workflow_dispatch:
     inputs:
       boolean_input:
