@@ -2,7 +2,6 @@ name: build-and-deploy-test-stable
 on:
   push:
     branches:
-      - 'main'
       - 'master'
       - 'hotfix**'
   workflow_dispatch:
