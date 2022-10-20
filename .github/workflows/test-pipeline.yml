@@ -34,6 +34,7 @@ jobs:
         run: |
           git remote remove origin
           git remote add origin git@github.com:atudomain/github-actions-test.git
+          git fetch --all
           git checkout origin/master
           touch test$(date | tr ':' - | tr ' ' _ | tr -d ',')
           git add . && git commit -m "$(date)"
