@@ -25,8 +25,16 @@ jobs:
         run: |
           git config user.name 'whatever'
           git config user.email 'whatever@example.com'
-      - name: Echo inputs 
+
+      - name: Install SSH Client
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Echo inputs
         run: |
+          git remote remove origin
+          git remote add origin git@github.com:atudomain/github-actions-test.git
           git checkout master
           touch test$(date | tr ':' - | tr ' ' _ | tr -d ',')
           git add . && git commit -m "$(date)"
